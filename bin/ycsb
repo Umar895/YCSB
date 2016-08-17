@@ -62,6 +62,7 @@ DATABASES = {
     "couchbase2"   : "com.yahoo.ycsb.db.couchbase2.Couchbase2Client",
     "dynamodb"     : "com.yahoo.ycsb.db.DynamoDBClient",
     "elasticsearch": "com.yahoo.ycsb.db.ElasticsearchClient",
+    "exist"        : "com.yahoo.ycsb.db.ExistEmbeddedClient",
     "geode"        : "com.yahoo.ycsb.db.GeodeClient",
     "googlebigtable"  : "com.yahoo.ycsb.db.GoogleBigtableClient",
     "googledatastore" : "com.yahoo.ycsb.db.GoogleDatastoreClient",
@@ -193,11 +194,11 @@ def is_distribution():
 def get_classpath_from_maven(module):
     try:
         debug("Running 'mvn -pl com.yahoo.ycsb:" + module + " -am package -DskipTests "
-              "dependency:build-classpath -DincludeScope=compile -Dmdep.outputFilterFile=true'")
+              "dependency:build-classpath -DincludeScope=test -Dmdep.outputFilterFile=true'")
         mvn_output = check_output(["mvn", "-pl", "com.yahoo.ycsb:" + module,
                                    "-am", "package", "-DskipTests",
                                    "dependency:build-classpath",
-                                   "-DincludeScope=compile",
+                                   "-DincludeScope=test",
                                    "-Dmdep.outputFilterFile=true"])
         # the above outputs a "classpath=/path/tojar:/path/to/other/jar" for each module
         # the last module will be the datastore binding

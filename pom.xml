@@ -96,6 +96,7 @@ LICENSE file.
     <aerospike.version>3.1.2</aerospike.version>
     <solr.version>5.4.0</solr.version>
     <arangodb.version>2.7.3</arangodb.version>
+    <exist.version>3.0.RC1</exist.version>
   </properties>
 
   <modules>
@@ -113,6 +114,7 @@ LICENSE file.
     <module>distribution</module>
     <module>dynamodb</module>
     <module>elasticsearch</module>
+    <module>exist</module>
     <module>geode</module>
     <module>googlebigtable</module>
     <module>googledatastore</module>
